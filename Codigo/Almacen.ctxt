@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Almacen
+comment1.params=
+comment1.target=Almacen()
+comment2.params=p
+comment2.target=void\ agregarProducto(Producto)
+comment3.params=codigo
+comment3.target=void\ eliminarProducto(int)
+comment4.params=codigo\ cant
+comment4.target=void\ aumentarCantProducto(int,\ int)
+comment5.params=codigo\ cant
+comment5.target=void\ disminuirCantProducto(int,\ int)
+comment6.params=codigo\ precio
+comment6.target=void\ modificarPrecio(int,\ int)
+comment7.params=criterio
+comment7.target=Producto\ buscarProducto(java.lang.String)
+comment8.params=codigo
+comment8.target=Producto\ buscarProducto(int)
+numComments=9
