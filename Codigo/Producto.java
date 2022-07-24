@@ -78,7 +78,12 @@ public class Producto
     
     public String toString()
     {
-        return "Producto: "+this.nombre+" - "+this.marca;
+        return "Prod: "+this.nombre+" "+this.marca + " - " + this.presentacion + "(" + this.tipo + ")";
+    }
+    
+    public String toCSV()
+    {
+        return this.codigo+";"+this.nombre+";"+this.marca+";"+this.presentacion+";"+this.tipo+";"+this.precio+";"+this.cantidad;
     }
 
 }

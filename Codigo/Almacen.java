@@ -4,15 +4,37 @@ import java.util.ArrayList;
 public class Almacen 
 {
     private List<Producto> listaProductos;
+    private ArchivoProductos a;
     
     public Almacen() 
     {
-       this.listaProductos = new ArrayList<Producto>();
+       a = new ArchivoProductos();
+       this.listaProductos = a.leerArchivo();
+    }
+    
+    public List<Producto> getListaProductos()
+    {
+        return this.listaProductos;
+    }
+    
+    public int getSiguienteCodigo()
+    {
+        int size = this.listaProductos.size();
+        if (size > 0)
+        {
+            return this.listaProductos.get(size - 1).getCodigo() + 1;
+        }
+        else
+        {
+            return 1;
+        }
+        
     }
     
     public void agregarProducto(Producto p) 
     {
         this.listaProductos.add(p);
+        a.guardarProducto(p.toCSV());
     }
     
     public int buscarIndiceProducto(int codigo)
@@ -39,6 +61,19 @@ public class Almacen
         return null;
     }
 
+    public ArrayList<Producto> buscarProductos(String criterio) 
+    {
+        ArrayList<Producto> listaResultado = new ArrayList<Producto>();
+        for (Producto p: this.listaProductos)
+        {
+            if (p.getNombre().equals(criterio) || p.getMarca().equals(criterio) || p.getPresentacion().equals(criterio) || p.getTipo().equals(criterio))
+            {
+                listaResultado.add(p);
+            }
+        }
+        return listaResultado;
+    }
+    
     public void eliminarProducto(int codigo) 
     {
         //Opcion1 cuando busco por codigo
@@ -90,16 +125,5 @@ public class Almacen
         }
     }
 
-    public ArrayList<Producto> buscarProductos(String criterio) 
-    {
-        ArrayList<Producto> listaResultado = new ArrayList<Producto>();
-        for (Producto p: this.listaProductos)
-        {
-            if (p.getNombre().equals(criterio) || p.getMarca().equals(criterio) || p.getPresentacion().equals(criterio) || p.getTipo().equals(criterio))
-            {
-                listaResultado.add(p);
-            }
-        }
-        return listaResultado;
-    }
+    
 }
