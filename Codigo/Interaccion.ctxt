@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Interaccion
+comment1.params=
+comment1.target=Interaccion()
+comment2.params=
+comment2.target=void\ presentarMenuPrincipal()
+comment3.params=
+comment3.target=void\ ingresarProducto()
+numComments=4
